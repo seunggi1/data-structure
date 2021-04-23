@@ -1,5 +1,6 @@
 ﻿using System;
 using DataStructure.Array;
+using DataStructure.LinkedList;
 
 namespace data_structure
 {
