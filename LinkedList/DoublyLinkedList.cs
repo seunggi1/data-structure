@@ -37,7 +37,7 @@ namespace DataStructure.LinkedList
             {
                 var current = head;
 
-                while (current.Next != null)
+                while (current != null && current.Next != null)
                 {
                     current = current.Next;
                 }
@@ -48,83 +48,65 @@ namespace DataStructure.LinkedList
             }
         }
 
-        public void AddAfter(DoublyLinkedNode<T> targetNode, DoublyLinkedNode<T> newNode)
+        public void AddAfter(DoublyLinkedNode<T> current, DoublyLinkedNode<T> newNode)
         {
-            if (head == null)
+            if (head == null || current == null || newNode == null)
             {
                 Console.WriteLine("존재하는 Node가 없습니다.");
                 return;
             }
 
-            var current = head;
-
-            while (current != targetNode && current.Next != null)
+            if (current == tail)
             {
-                current = current.Next;
-            }
-
-            if (tail == current)
-            {
-                newNode.Prev = tail;
-                tail.Next = newNode;
                 tail = newNode;
-
             }
-            else
-            {
-                newNode.Prev = current;
-                newNode.Next = current.Next;
 
-                current.Next.Prev = newNode;
-                current.Next = newNode;
-            }
+            current.Next.Prev = newNode;
+            newNode.Next = current.Next;
+            newNode.Prev = current;
+            current.Next = newNode;
         }
 
-        public void Remove(DoublyLinkedNode<T> targetNode)
+        public void Remove(DoublyLinkedNode<T> removeNode)
         {
-            if (head == null)
+            if (head == null || removeNode == null)
             {
                 Console.WriteLine("존재하는 Node가 없습니다.");
                 return;
             }
 
-            var current = head;
-
-            while (current != targetNode && current.Next != null)
+            if (head == removeNode)
             {
-                current = current.Next;
-            }
+                head = removeNode.Next;
 
-            if(head == current)
+                if (head != null)
+                {
+                    head.Prev = null;
+                }
+            } else if(tail == removeNode)
             {
-                head = current.Next;
-                head.Prev = null;
+                tail = removeNode.Prev;
             }
             else
             {
-                current.Prev = current.Next;
-                current.Next.Prev = current.Prev;
-                current = null;
+                removeNode.Prev.Next = removeNode.Next;
+
+                if (removeNode.Next != null)
+                {
+                    removeNode.Next.Prev = removeNode.Prev;
+                }
+
+                removeNode = null;
             }
         }
 
         public DoublyLinkedNode<T> GetNode(int index)
         {
-
-            if (head == null)
-            {
-                Console.WriteLine("Node가 존재하지않습니다.");
-                return null;
-            }
-
             var current = head;
 
-            for (int i = 0; i < index; i++)
+            for (int i = 0; i < index && current != null; i++)
             {
-                if(current.Next != null)
-                {
-                    current = current.Next;
-                }
+                current = current.Next;
             }
 
             return current;
@@ -132,15 +114,10 @@ namespace DataStructure.LinkedList
 
         public int GetCount()
         {
-            if(head == null)
-            {
-                return 0;
-            }
-
+            int count = 0;
             var current = head;
-            int count = 1;
-
-            while (current.Next != null)
+            
+            while (current != null)
             {
                 current = current.Next;
                 count++;

@@ -2,13 +2,13 @@
 using DataStructure.Array;
 using DataStructure.LinkedList;
 
-namespace data_structure
+namespace DataStructure
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
+          
         }
     }
 }
