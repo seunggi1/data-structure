@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure.Stack
 {
-    class StackCalulator
+    public class StackCalculator
     {
     }
 }
