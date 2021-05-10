@@ -3,6 +3,7 @@ using DataStructure.Array;
 using DataStructure.LinkedList;
 using DataStructure.Queue;
 using DataStructure.Stack;
+using DataStructure.Tree;
 
 namespace DataStructure
 {
@@ -10,7 +11,7 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-
+            new NLinkNode();
         }
     }
 }
