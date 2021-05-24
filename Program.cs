@@ -12,22 +12,22 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            var tree = new BinaryTree_Array();
+            var postfix = "10 4 / 3 5 * +".Split(' ');
 
-            tree.Root = "A";
-            tree.SetLeft(0, "B");
-            tree.SetRight(0, "C");
+            var et = new ExpressionTree();
+            et.Build(postfix);
 
-            tree.SetLeft(1, "D");
-            tree.SetLeft(2, "F");
+            Console.Write("Inorder : ");
+            et.Inorder(et.Root);
+            Console.WriteLine();
 
-            tree.PrintTree();
+            Console.Write("Postorder : ");
+            et.Postorder(et.Root);
+            Console.WriteLine();
 
-            var data = tree.GetParent(5);
+            var result = et.Evaludate(et.Root);
 
-            Console.WriteLine(data);
-
-            Console.WriteLine(tree.GetLeft(2));
+            Console.WriteLine($"Result : {result}");
         }
     }
 }

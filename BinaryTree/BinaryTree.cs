@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class BinaryTree_LinkedList
+    public class BinaryTree
     { 
-        private BinaryNode_LinkedList<string> Root { get; set; }
+        public BinaryNode<string> Root { get; set; }
 
-        public BinaryTree_LinkedList(string data)
+        public BinaryTree(string data)
         {
-            Root = new BinaryNode_LinkedList<string>(data);
+            Root = new BinaryNode<string>(data);
         }
 
         public void PreorderTraversal()
@@ -20,7 +20,7 @@ namespace DataStructure.BinaryTree
             PreorderTraversal(Root);
         }
 
-        private void PreorderTraversal(BinaryNode_LinkedList<string> node)
+        private void PreorderTraversal(BinaryNode<string> node)
         {
             if(node == null)
             {

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class BinaryNode_LinkedList<T>
+    public class BinaryNode<T>
     {
         public T Data { get; set; }
-        public BinaryNode_LinkedList<T> Left { get; set; }
-        public BinaryNode_LinkedList<T> Right { get; set; }
+        public BinaryNode<T> Left { get; set; }
+        public BinaryNode<T> Right { get; set; }
 
-        public BinaryNode_LinkedList(T data)
+        public BinaryNode(T data)
         {
             Data = data;
         }
