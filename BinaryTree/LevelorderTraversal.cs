@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class LevelorderTraversal
+    public class LevelorderTraversal<T>
     {
-        public BinaryTree _tree;
+        public BinaryTree<T> _tree;
 
-        public LevelorderTraversal(BinaryTree tree)
+        public LevelorderTraversal(BinaryTree<T> tree)
         {
             _tree = tree;
         }
@@ -22,7 +22,7 @@ namespace DataStructure.BinaryTree
 
         private void LevelorderForQueue()
         {
-            Queue<BinaryNode<string>> queue = new Queue<BinaryNode<string>>();
+            Queue<BinaryNode<T>> queue = new Queue<BinaryNode<T>>();
 
             queue.Enqueue(_tree.Root);
             queue.Enqueue(null);

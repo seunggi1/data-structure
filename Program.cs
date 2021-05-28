@@ -12,22 +12,29 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            var tree = new BinaryTree.BinaryTree("A");
+            var bst = new BinarySearchTree<int>();
 
-            tree.Root.Left = new BinaryNode<string>("B");
-            tree.Root.Left.Left = new BinaryNode<string>("C");
-            tree.Root.Left.Right = new BinaryNode<string>("D");
+            bst.Add(6);
+            bst.Add(7);
+            bst.Add(2);
+            bst.Add(1);
+            bst.Add(5);
+            bst.Add(3);
+            bst.Add(4);
 
-            tree.Root.Left.Right.Left = new BinaryNode<string>("D1");
-            tree.Root.Left.Right.Right = new BinaryNode<string>("D2");
+            bst.FindKthLargest(6);
 
-            tree.Root.Right = new BinaryNode<string>("E");
-            tree.Root.Right.Left = new BinaryNode<string>("F");
-            tree.Root.Right.Right = new BinaryNode<string>("G");
 
-            Console.WriteLine(tree.GetCount(tree.Root));
-            Console.WriteLine(tree.GetDepth(tree.Root));
-            Console.WriteLine(tree.LeastCommonAncestor(tree.Root, tree.Root.Left.Right.Right, tree.Root.Left.Left).Data);
+            bst.LeastCommonAncestor(1, 4);
+
+            var root = new BinaryNode<int>(3);
+            root.Left = new BinaryNode<int>(5);
+            root.Left.Left = new BinaryNode<int>(7);
+            root.Left.Right = new BinaryNode<int>(6);
+            root.Right = new BinaryNode<int>(9);
+            root.Right.Right = new BinaryNode<int>(8);
+
+            var tree = bst.binaryTreeToBST(root);
         }
     }
 }

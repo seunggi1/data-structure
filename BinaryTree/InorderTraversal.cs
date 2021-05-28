@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class InorderTraversal
+    public class InorderTraversal<T>
     {
-        private BinaryTree _tree;
+        private BinaryTree<T> _tree;
 
-        public InorderTraversal(BinaryTree tree)
+        public InorderTraversal(BinaryTree<T> tree)
         {
             _tree = tree;
         }
@@ -25,7 +25,7 @@ namespace DataStructure.BinaryTree
             InorderForIterator();
         }
 
-        private void Inorder(BinaryNode<string> node)
+        private void Inorder(BinaryNode<T> node)
         {
             if (node == null)
             {
@@ -39,7 +39,7 @@ namespace DataStructure.BinaryTree
 
         private void InorderForIterator()
         {
-            Stack<BinaryNode<string>> stack = new Stack<BinaryNode<string>>();
+            Stack<BinaryNode<T>> stack = new Stack<BinaryNode<T>>();
 
             var node = _tree.Root;
 

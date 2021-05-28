@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class BinaryTree
+    public class BinaryTree<T>
     { 
-        public BinaryNode<string> Root { get; set; }
+        public BinaryNode<T> Root { get; set; }
 
-        public BinaryTree(string data)
+        public BinaryTree(T data)
         {
-            Root = new BinaryNode<string>(data);
+            Root = new BinaryNode<T>(data);
         }
 
         public void PreorderTraversal()
@@ -20,7 +20,7 @@ namespace DataStructure.BinaryTree
             PreorderTraversal(Root);
         }
 
-        private void PreorderTraversal(BinaryNode<string> node)
+        private void PreorderTraversal(BinaryNode<T> node)
         {
             if(node == null)
             {
@@ -33,7 +33,7 @@ namespace DataStructure.BinaryTree
 
         }
 
-        public int GetDepth(BinaryNode<string> node)
+        public int GetDepth(BinaryNode<T> node)
         {
             // 노드가 아예 없는 빈 트리는 깊이가 -1, 루트 노드 하나만 있는 경우엔 깊이가 0이 된다. 
             if(node == null)
@@ -45,7 +45,7 @@ namespace DataStructure.BinaryTree
         }
 
         // 노드의 최대 갯수 구하기
-        public int GetCount(BinaryNode<string> node)
+        public int GetCount(BinaryNode<T> node)
         {
             if(node == null)
             {
@@ -55,7 +55,7 @@ namespace DataStructure.BinaryTree
             return 1 + GetCount(node.Left) + GetCount(node.Right);
         }
 
-        public bool FindTreePath(BinaryNode<string> root, BinaryNode<string> target, List<BinaryNode<string>> path)
+        public bool FindTreePath(BinaryNode<T> root, BinaryNode<T> target, List<BinaryNode<T>> path)
         {
             if(root == null)
             {
@@ -78,7 +78,7 @@ namespace DataStructure.BinaryTree
             return false;
         }
 
-        public BinaryNode<string> LeastCommonAncestor(BinaryNode<string> root, BinaryNode<string> a, BinaryNode<string> b)
+        public BinaryNode<T> LeastCommonAncestor(BinaryNode<T> root, BinaryNode<T> a, BinaryNode<T> b)
         {
             if (root == null)
             {

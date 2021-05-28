@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataStructure.BinaryTree
 {
-    public class PostorderTraversal
+    public class PostorderTraversal<T>
     {
-        private BinaryTree _tree;
+        private BinaryTree<T> _tree;
 
-        public PostorderTraversal(BinaryTree tree)
+        public PostorderTraversal(BinaryTree<T> tree)
         {
             _tree = tree;
         }
@@ -27,7 +27,7 @@ namespace DataStructure.BinaryTree
             PostorderZZ();
         }
 
-        private void Postorder(BinaryNode<string> node)
+        private void Postorder(BinaryNode<T> node)
         {
             if(node == null)
             {
@@ -41,7 +41,7 @@ namespace DataStructure.BinaryTree
 
         private void PostorderForIterator()
         {
-            Stack<BinaryNode<string>> stack = new Stack<BinaryNode<string>>();
+            Stack<BinaryNode<T>> stack = new Stack<BinaryNode<T>>();
 
             var node = _tree.Root;
 
@@ -92,7 +92,7 @@ namespace DataStructure.BinaryTree
 
         private void PostorderZZ()
         {
-            Stack<BinaryNode<string>> stack = new Stack<BinaryNode<string>>();
+            Stack<BinaryNode<T>> stack = new Stack<BinaryNode<T>>();
 
             var node = _tree.Root;
 
