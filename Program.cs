@@ -12,22 +12,22 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            var postfix = "10 4 / 3 5 * +".Split(' ');
+            var tree = new BinaryTree.BinaryTree("A");
 
-            var et = new ExpressionTree();
-            et.Build(postfix);
+            tree.Root.Left = new BinaryNode<string>("B");
+            tree.Root.Left.Left = new BinaryNode<string>("C");
+            tree.Root.Left.Right = new BinaryNode<string>("D");
 
-            Console.Write("Inorder : ");
-            et.Inorder(et.Root);
-            Console.WriteLine();
+            tree.Root.Left.Right.Left = new BinaryNode<string>("D1");
+            tree.Root.Left.Right.Right = new BinaryNode<string>("D2");
 
-            Console.Write("Postorder : ");
-            et.Postorder(et.Root);
-            Console.WriteLine();
+            tree.Root.Right = new BinaryNode<string>("E");
+            tree.Root.Right.Left = new BinaryNode<string>("F");
+            tree.Root.Right.Right = new BinaryNode<string>("G");
 
-            var result = et.Evaludate(et.Root);
-
-            Console.WriteLine($"Result : {result}");
+            Console.WriteLine(tree.GetCount(tree.Root));
+            Console.WriteLine(tree.GetDepth(tree.Root));
+            Console.WriteLine(tree.LeastCommonAncestor(tree.Root, tree.Root.Left.Right.Right, tree.Root.Left.Left).Data);
         }
     }
 }
