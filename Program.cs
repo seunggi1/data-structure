@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using DataStructure.Array;
 using DataStructure.BinaryTree;
 using DataStructure.LinkedList;
 using DataStructure.Queue;
 using DataStructure.Stack;
 using DataStructure.Tree;
+using DataStructure.Heap;
 
 namespace DataStructure
 {
@@ -12,29 +14,23 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            var bst = new BinarySearchTree<int>();
+            var heap = new MinHeap();
 
-            bst.Add(6);
-            bst.Add(7);
-            bst.Add(2);
-            bst.Add(1);
-            bst.Add(5);
-            bst.Add(3);
-            bst.Add(4);
+            // 힙 속성을 따르는 값
+            heap.Add(50);
+            heap.Add(10);
+            heap.Add(22);
+            heap.Add(12);
+            heap.Add(34);
 
-            bst.FindKthLargest(6);
+            // 힙 속성을 따르지않는 값
+            heap.Add(53);
+            heap.Add(85);
 
+            Console.WriteLine($"{heap.Remove()}");
+            Console.WriteLine($"{heap.Remove()}");
 
-            bst.LeastCommonAncestor(1, 4);
-
-            var root = new BinaryNode<int>(3);
-            root.Left = new BinaryNode<int>(5);
-            root.Left.Left = new BinaryNode<int>(7);
-            root.Left.Right = new BinaryNode<int>(6);
-            root.Right = new BinaryNode<int>(9);
-            root.Right.Right = new BinaryNode<int>(8);
-
-            var tree = bst.binaryTreeToBST(root);
+            heap.DebugDisplayHeap();
         }
     }
 }
