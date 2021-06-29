@@ -7,6 +7,7 @@ using DataStructure.Queue;
 using DataStructure.Stack;
 using DataStructure.Tree;
 using DataStructure.Heap;
+using DataStructure.Trie;
 
 namespace DataStructure
 {
@@ -14,23 +15,29 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            var heap = new MinHeap();
+            var sTrie = new HashTrie();
 
-            // 힙 속성을 따르는 값
-            heap.Add(50);
-            heap.Add(10);
-            heap.Add(22);
-            heap.Add(12);
-            heap.Add(34);
+            sTrie.Insert("프로");
+            sTrie.Insert("프로그래밍");
+            sTrie.Insert("프로그램");
+            sTrie.Insert("안녕하신가요");
+            sTrie.Insert("안녕하신가");
 
-            // 힙 속성을 따르지않는 값
-            heap.Add(53);
-            heap.Add(85);
+            bool find = sTrie.Find("프로그래밍");
+            Console.WriteLine($"프로그래밍 : {find}");
+            find = sTrie.Find("프로그램램");
+            Console.WriteLine($"프로그램램 : {find}");
 
-            Console.WriteLine($"{heap.Remove()}");
-            Console.WriteLine($"{heap.Remove()}");
+            find = sTrie.Find("안녕하");
+            Console.WriteLine($"안녕하 : {find}");
 
-            heap.DebugDisplayHeap();
+
+            var autoCompletes = sTrie.AutoComplete("프");
+
+            foreach (var text in autoCompletes)
+            {
+                Console.WriteLine($"{text}");
+            }
         }
     }
 }
